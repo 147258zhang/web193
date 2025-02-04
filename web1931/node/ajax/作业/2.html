@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var projectList = [
+            {
+                name: 'JavaScript',
+                price: 1000
+            },
+            {
+                name: 'PHP',
+                price: 500
+            },
+            {
+                name: 'Java',
+                price: 2000
+            },
+            {
+                name: 'Node.js',
+                price: 1500
+            },
+            {
+                name: 'HTML',
+                price: 400
+            },
+            {
+                name: 'CSS',
+                price: 800
+            },
+            {
+                name: 'CSS动画案例',
+                price: 90
+            },
+            {
+                name: 'Mysql初级',
+                price: 400
+            },
+            {
+                name: 'MySql高级优化',
+                price: 3000
+            }
+        ]
+        var arr1 = projectList.filter(function (v) {
+
+            return v.price > 2000
+
+        })
+        console.log(arr1)
+        var arr2 = projectList.filter(function (v) {
+
+            return v.price < 1000
+
+        })
+        var index=Math.floor(Math.random()*arr2.length)
+        console.log(arr2[index])
+    </script>
+</body>
+
+</html>

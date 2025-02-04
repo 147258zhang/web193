@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="../vue.js"></script>
+<style></style>
+<title></title>
+</head>
+<body>
+  <div id="app">
+    <p v-if="a==10">王桂芝</p>
+    <p v-else-if="a==20">邹翠娟</p>
+    <p v-else>魏德芬</p>
+  </div>
+  <script>
+  var vm = new Vue({
+     el:'#app',
+     data:{
+       a:10,
+     },
+   })
+</script>
+</body>
+</html>

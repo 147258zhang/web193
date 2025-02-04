@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="../vue.js"></script>
+<style></style>
+<title></title>
+</head>
+<body>
+  <div id="app">
+    <div :style="[ys,r]"></div>
+  </div>
+  <script>
+  var vm = new Vue({
+     el:'#app',
+     data:{
+       ys:{'width':'200px','height':'200px','background-color':'red'},
+       r:{
+         'border-radius':'50%'
+       }
+     },
+   });
+</script>
+</body>
+</html>

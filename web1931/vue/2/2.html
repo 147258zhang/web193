@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="../vue.js"></script>
+<style></style>
+<title></title>
+</head>
+<body>
+  <div id="app">
+    <p>{{a}}</p>
+    <p v-text=a>!!!!!</p>
+  </div>
+  <script>
+  var vm = new Vue({
+     el:'#app',
+     data:{
+       a:'王凯威'
+     },
+   })
+</script>
+</body>
+</html>

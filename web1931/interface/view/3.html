@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>   
+    <meta charset="UTF-8">   <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .item .pic {
+            width: 25px;
+            height: 25px;
+        }
+
+        .urlpic {
+            width: 150px;
+        }
+    </style>   <title></title>   
+    <script src=".. /data/5.js"></script>   
+    <link rel="stylesheet" href=".. /public/stylesheet/icon.css">
+</head>
+
+<body>   <div class="list" id="list"></div>
+    <script>   var list = document.getElementById('list'); console.log(data)   list.innerHTML = `<div class="item" style="background-color:${data[0].attributes.major.mbg};border:3px solid ${data[0].attributes.major.mbc}">     <div class="pic" style=" background-image: url(${data[0].attributes.major.mpic});"></div>     <h4>${data[0].id}</h4>     <p>${data[0].name}</p >     <img src="${data[0].url}" alt="" class="urlpic">     <ul class="attr">       <li>         <div style="background-color:${data[0].attributes.secondary[0].sbg}"><img src="${data[0].attributes.secondary[0].spic}" alt=""></div>         <p>${data[0].attributes.secondary[0].sname}</p >       </li>       <li>         <div  style="background-color:${data[0].attributes.secondary[1].sbg}"><img src="${data[0].attributes.secondary[1].spic}" alt=""></div>         <p>${data[0].attributes.secondary[1].sname}</p >       </li>     </ul>   </div>` </script>
+</body>
+
+</html>

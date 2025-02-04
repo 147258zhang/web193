@@ -1,0 +1,6 @@
+<!--pages/2/2.wxml-->
+<!-- <text>pages/2/2.wxml</text> -->
+<block wx:for="{{list}}">
+  <checkbox bindtap="movie" data-id="{{item.id}}">{{item.names}}</checkbox>
+  <view>{{movie.index.content}}</view>
+</block>

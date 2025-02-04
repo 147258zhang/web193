@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            margin-top: 10px;
+            width: 400px;
+        }
+
+        div div {
+            background-color: coral;
+            width: 100px;
+            height: 100px;
+            float: left;
+            margin: 0 0 0 10px;
+        }
+
+        .clearbox:after {
+            content: "";
+            height: 0;
+            line-height: 0;
+            display: block;
+            visibility: hidden;
+            clear: both;
+        }
+
+        button {
+            width: 70px;
+            height: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="clearbox">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="clearbox">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div class="clearbox">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <button onclick="a()">按钮</button>
+    <button onclick="d()">结束</button>
+    <script>
+        var btn = document.getElementsByTagName('btn');
+        var bgc = document.getElementsByClassName('clearbox');
+
+        var b = function () {
+            return Math.floor(Math.random() * 3)
+        }
+        // var i=0;
+        //     while(i<3){
+        //         bgc[b()].children[b()].style.backgroundColor='red';
+        //         i++
+        //     }
+        var c = function () {
+            for (var i = 0; i < bgc.length; i++) {
+                for (var a = 0; a < bgc[i].children.length; a++) {
+                    bgc[i].children[a].style.backgroundColor = 'coral';
+                }
+            }
+        }
+        var a = function () {
+            setInterval(function () {
+                c();
+                var i = 0;
+                var arr = [];
+                while (i < 3) {
+                    var d = bgc[b()].children[b()];
+                    var e = arr.every(function (value) {
+                        return value != d
+                    })
+                    if (e) {
+                        arr.push(d);
+                        d.style.backgroundColor = 'red';
+                        i++;
+                    }
+                }
+                // console.log(arr)
+            },1000)
+        }
+        var d=function(){
+            for (var i = 0; i < bgc.length; i++) {
+                for (var a = 0; a < bgc[i].children.length; a++) {
+                    bgc[i].children[a].style.backgroundColor = 'coral';
+                    clearInterval(a);
+                }
+            }
+        }
+        console.log(b())
+    </script>
+</body>
+
+</html>

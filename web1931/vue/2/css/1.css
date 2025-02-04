@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+.box {
+  width: 1000px;
+  margin: 0 auto;
+}
+.box ul li {
+  list-style: none;
+}
+.box ul li p {
+  color: #640203;
+}

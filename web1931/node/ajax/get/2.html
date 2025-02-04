@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr1=[1,2,3];
+        var obj1={
+            name:'tom',
+        }
+        var obj2=JSON.parse(JSON.stringify(obj1));
+        obj2.name ='jack';
+        var aa=['高武杰','秦文泽','张宇'];
+        
+        // 扩展运算符不是深拷贝
+        var cc=[1,2,3];
+        var bb=[...aa,...cc];
+        console.log(bb)
+        // 解构
+        var data={id:'001',name:'妙蛙种子'}
+        var {id:x,name:y}=data;
+        console.log(x)
+    </script>
+</body>
+</html>

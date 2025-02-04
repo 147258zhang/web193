@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img {
+            width: 250px;
+            height: 250px;
+            float: left;
+            overflow: hidden;
+        }
+
+        .img img {
+            width: 250px;
+            height: 250px;
+        }
+        .btn{
+            float: left;
+        }
+        button {
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="img">
+        <img src="./img/1.gif" alt="">
+        <img src="./img/2.gif" alt="">
+        <img src="./img/3.gif" alt="">
+        <img src="./img/4.gif" alt="">
+        <img src="./img/5.gif" alt="">
+    </div>
+    <div class="btn">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+    </div>
+
+    <script>
+        var btn = document.getElementsByTagName('button');
+        var img = document.getElementsByTagName('img');
+        console.log(btn.length);
+        for(var i=0;i<btn.length;i++){
+            btn[i].onclick=function(){
+                img[0].src=`./img/${this.innerHTML}.gif`;
+                console.log(this.innerHTML)
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <script src="../data/data.js"></script>
+  <script src="../data/attributes.js"></script>
+  <link rel="stylesheet" href="./item.css">
+  <title>7</title>
+  
+</head>
+
+<body>
+  <h1 class="title">口袋妖怪图鉴</h1>
+  <div id="list"></div>
+  <script>
+      var str=(window.location.search).substr(1);
+      
+      var index=str.indexOf('=');
+      var key=str.substr(index+1,3);
+      var index1=str.lastIndexOf('=')
+      var val=decodeURIComponent(str.substr(index1+1));
+      console.log(val);
+      var num=Number(key);
+      var list =document.getElementById('list');
+      var li = document.createElement("li")
+      list.appendChild(li)
+      li.setAttribute("class", "item")
+      list.innerHTML=`
+        <div class="tit">
+        <div class="names">${data[num].name}</div>
+        <div class="img">
+          <img src="${attributes[data[num].attr[0]-1].pic.mpic}" alt="">
+        </div>
+        <div class="num">${key}</div>
+      </div>
+      <div class="url">
+        <img src="${data[num].url}" alt="">
+      </div>
+      <div class="foot">
+        <div class="attrs">
+          <h5>属性</h5>
+          <div class="attr-part">
+            <div class="attr-item">
+              
+            </div>
+          </div>
+        </div>
+        <div class="risk">
+          <h5>捕获率</h5>
+          <p>${data[num].capture}</p>
+        </div>
+      </div>`
+      var attrPart =document.getElementsByClassName('attr-part');
+    for(var j=0;j<attrPart.length;j++){
+      // console.log(data[j].attr)
+      attrPart[j].innerHTML=attrMuster(data[j].attr)
+    }
+    function attrMuster(v){
+      var attrs ='';
+      //v[k]-1 每个小精灵的属性数据（值-1）
+      //v 代表小精灵数据的数组
+      //k 代表遍历小精灵属性的数组索引
+      // v[k] 代表属性数组的值
+      // v[k]-1 代表所处的索引
+      for(var k=0;k<v.length;k++){
+        attrs+=` <div class="attr-item">
+                <div class="spic">
+                  <img src="${attributes[v[k]-1].pic.spic}" alt="">
+                </div>
+                <div class="sname">
+                  <span>${attributes[v[k]-1].name}</span>
+                </div>
+              </div>`
+      }
+      return attrs;
+    }
+  
+  </script>
+
+</body>
+
+</html>

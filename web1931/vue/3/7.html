@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="../vue.js"></script>
+<style>
+  .tab {
+    width: 200px;
+    margin: 0 auto;
+    display: flex;
+  }
+  .tab a {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+    box-sizing: border-box;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    color: black;
+  }
+  .active {
+    background-color: red;
+    color: white;
+  }
+  li{background-color: red;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    width: 200px;
+    height: 200px;
+
+  }
+</style>
+<title></title>
+</head>
+<body>
+  <div id="app">
+    <div class="box">
+      <div>
+        <ul>
+          <li v-for="(item,index) in imgarr" v-show="index==changeIndex" @click=change(index)>
+            <img :src="'./icon/'+item" alt="" v-for="(item,index) in img" v-show="index==changeIndex">
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="tab">
+      <a href="javascript:;" :data-i="index" v-for="(item,index) in arr" :class="{active:index==changeIndex}" @click=change(index)>{{item}}</a>
+    </div>
+  </div>
+  <script>
+  var vm = new Vue({
+     el:'#app',
+     data:{
+       arr:[1,2,3,4],
+       changeIndex:0,
+       imgarr:['d1','d2','d3','d4'],
+       img:['1.gif','2.gif','3.gif','4.gif']
+     },
+     methods:{
+       change:function(index){
+        this.changeIndex = index;
+       },
+       
+     },
+
+   });
+</script>
+</body>
+</html>

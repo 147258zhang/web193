@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            line-height: 3;
+            text-align: center;
+
+        }
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        td,th {
+            border: 1px solid black;
+            text-align: center;
+        }
+        th:nth-child(1){
+            width: 100px;
+        }
+        th:nth-child(2){
+            width: 120px;
+        }
+        th:nth-child(3){
+            width: 180px;
+        }
+        th:nth-child(4){
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <h1>小精灵列表</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>图标</th>
+                <th>编号</th>
+                <th>名称</th>
+                <th>查看</th>
+            </tr>
+        </thead>
+        <tbody id="list" class="">
+                
+        </tbody>
+    </table>
+    
+    <script>
+        var xhr
+        // 1.创建变量,
+        var xhr=new XMLHttpRequest();
+        // 2.利用该对象的一些属性和方法，使其用什么方式，找到交互地址
+        xhr.open('GET','http://localhost:3000/search?id=016',true);
+        // 3.发送
+        xhr.send();
+        // 4.打电话等消息
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState==4){
+                // 可以了
+                // if(xhr.status==200){}
+                // 6.找到正确的负责人
+                if(xhr.status>=200&&xhr.status<300){
+                    // 反馈内容，拿后台数据到前台来
+                    var data=xhr.responseText;
+                    var dataJson=JSON.parse(data);
+                    // 拷贝一份数据
+
+                    var list=document.getElementById('list');
+                    for(var i=0;i<dataJson.length;i++){
+                        list.innerHTML+=`<tr>
+                    <td>
+                    <div class="sprite-icon sprite-icon-${dataJson[i].id}"></div>
+                </td>
+                <td>${dataJson[i].id}</td>
+                <td>${dataJson[i].name}</td>
+                <td><a href="item copy.html?id=${dataJson[i].id}&name=${dataJson[i].name}">查看</a></td>
+                </tr>`;
+                    }
+                    console.log(data)
+                }
+            }
+        }
+
+    </script>
+    <script>
+       
+    </script>
+</body>
+</html>

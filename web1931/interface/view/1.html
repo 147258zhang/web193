@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <p id="p1"></p>
+    <p id="p2"></p>
+    <img id="p3" src=""> -->
+    <ul id="list"></ul>
+    <script src="../data/1.js"></script>
+    <script>
+        window.onload=function(){
+            // p1.innerHTML=data[0].id;
+            // p2.innerHTML=data[0].name;
+            // p3.src=data[0].url;
+            var list=document.getElementById('list');
+            // 在document中创建一个标签document.createElement（'标签名'）
+            for(var i=0;i<data.length;i++){
+                var item=document.createElement('li');
+                // 把创建好了的元素加到某个元素里面去
+                list.appendChild(item);
+                item.innerHTML='<h1>'+data[i].id+'</h1><h3>'+data[i].name+'</h3><img src='+data[i].url+'>'
+            }
+            
+        }
+    </script>
+</body>
+</html>

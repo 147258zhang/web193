@@ -1,0 +1,45 @@
+/* pages/1/1.wxss */
+.view{
+  border-radius: 10px;
+  margin: 15px 10px 10px 10px;
+  display: flex;
+}
+view image{
+  width: 110px;
+  height: 130px;
+  border-radius: 10px 0 0 10px;
+}
+.main{
+  width: 200px;
+  margin: 6px;
+}
+.main_top{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  line-height: 30px;
+  font-weight: 600;
+  font-size: 18px;
+}
+.main_top image{
+  width: 30px;
+  height: 30px;
+}
+.main_body image{
+  width: 12px;
+  height: 12px;
+  margin-right: 5px;
+}
+.main_body1{
+  margin-top: 5px;
+}
+.main_body1 image{
+  width: 15px;
+  height: 15px;
+  margin-right: 5px;
+}
+.main_foot{
+  font-size: 27px;
+  color: green;
+  margin-top: 8px;
+}

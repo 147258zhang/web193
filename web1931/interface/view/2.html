@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/stylesheet/icon.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        #d3 {
+            width: 320px;
+            height: 475px;
+            background-color: rgb(51, 153, 255);
+            border-radius: 9px;
+            border: 2px solid rebeccapurple;
+            float: left;
+            margin-right: 5px;
+        }
+
+        .a1 {
+            width: 75px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border: 2px solid rebeccapurple;
+            font-size: 20px;
+            border-radius: 9px;
+            float: left;
+            background-color: white;
+            margin: 2px;
+            font-weight: 700;
+        }
+
+        .a2 {
+            width: 170px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border: 2px solid rebeccapurple;
+            font-size: 27px;
+            border-radius: 9px;
+            float: left;
+            background-color: white;
+            margin: 2px;
+            font-weight: 700;
+        }
+
+        .a4 {
+            width: 310px;
+            height: 65px;
+            border: 2px solid rebeccapurple;
+            border-radius: 9px;
+            text-align: center;
+            font-size: 17px;
+            background-color: white;
+            margin: 4px;
+        }
+        .a5 {
+            border: 1px solid rebeccapurple;
+            border-radius: 9px;
+            margin: 5px;
+        }
+
+        .a3 {
+            width: 300px;
+            height: 310px;
+            background-color: white;
+            text-align: center;
+            border-radius: 9px;
+            border: 2px solid;
+        }
+
+        .a6 {
+            float: left;
+            height: 50px;
+            line-height: 68px;
+            width: 40px;
+            text-align: center;
+            display: table-cell;
+        }
+        .a7 {
+            float: left;
+        }
+        .b1{
+            float: left;
+        }
+        .b2{
+            float: left;
+        }
+        .clearfloat:after {
+            content: "";
+            height: 0;
+            display: block;
+            visibility: hidden;
+            clear: both;
+        }
+
+        .clearfloat {
+            zoom: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="d2"></div>
+    <script src="../data/1.js"></script>
+    <script>
+        window.onload = function () {
+            var list = document.getElementById('d2');
+            for (var i = 0; i < data.length; i++) {
+                var app = document.createElement('div');
+                list.appendChild(app);
+                if(data[i].attributes.secondary.length==2){
+                    app.innerHTML = `<div id="d3" style="background-color:${data[i].attributes.major.mbg}">
+                    <div class="a5 clearfloat">
+                        <div class="a2">${data[i].name}</div>
+                        <div class="a6">
+                            <p><img src="${data[i].attributes.major.mpic}" alt=""></p>
+                        </div>
+                        <div class="a1">${data[i].id}</div>
+                    </div>
+                    <div class="a5">
+                        <img class="a3" src="${data[i].url}">
+                    </div>
+                    <div class="a4">
+                            <p>属性</p>
+                            <div style="margin-left: 100px;">
+                                <div style="background-color: ${data[i].attributes.secondary[0].sbg}" class="a7">
+                                <img src="${data[i].attributes.secondary[0].spic}" class="b1">
+                                <div class="b2">${data[i].attributes.secondary[0].sname}</div>
+                            </div>
+                            <div style="background-color: ${data[i].attributes.secondary[1].sbg}" class="a7">
+                                <img src="${data[i].attributes.secondary[1].spic}" class="b1">
+                                <div class="b2">${data[i].attributes.secondary[1].sname}</div>
+                            </div>    
+                            </div>
+                            
+                    </div>
+                </div>`
+                }else{
+                    app.innerHTML = `<div id="d3" style="background-color:${data[i].attributes.major.mbg}">
+                    <div class="a5 clearfloat">
+                        <div class="a2">${data[i].name}</div>
+                        <div class="a6">
+                            <p><img src="${data[i].attributes.major.mpic}" alt=""></p>
+                        </div>
+                        <div class="a1">${data[i].id}</div>
+                    </div>
+                    <div class="a5">
+                        <img class="a3" src="${data[i].url}">
+                    </div>
+                    <div class="a4">
+                            <p>属性</p>
+                            <div style="margin-left: 130px;">
+                                <div style="background-color: ${data[i].attributes.secondary[0].sbg}" class="a7">
+                                <img src="${data[i].attributes.secondary[0].spic}" class="b1">
+                                <div class="b2">${data[i].attributes.secondary[0].sname}</div>
+                            </div>
+                            </div>   
+                    </div>
+                </div>`
+                }
+                
+            }
+        }
+    </script>
+    
+    
+</body>
+
+</html>

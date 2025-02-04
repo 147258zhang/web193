@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style></style>
+    <title></title>
+  </head>
+  <body>
+    <h1 class="title">口袋妖怪图鉴</h1>
+    <input type="text"> <button id="btn">查询</button>
+    <div id="box">
+      <ul id="list" class="list">
+      </ul>
+    </div>
+    <script>
+      var list =document.getElementById('list');
+      var inp =document.getElementById('inp');
+      //获取按钮元素
+      var btn =document.getElementById('btn');
+      btn.onclick =function(){
+        //input输入的值
+        var val =inp.value;
+      }
+      /*************页面刷新是自动使用XMLHttpRequest************/
+      //兼容ie的方法
+      if (window.XMLHttpRequest) {
+        var xhr = new XMLHttpRequest();
+      } else {
+        var xhr = new ActiveXObject("Microsoft.XHLHTTP");
+      }
+      // /query 准备查询所有的数据
+      xhr.open("GET", 'http://localhost:3000/query', true);
+      xhr.send();
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+          if (xhr.status == 200) {
+            var data = xhr.responseText;
+            // console.log(JSON.parse(data));
+            //把数据转为对象
+            var dataJson =JSON.parse(data);
+          //拷贝一份数据
+          var copyData = [...dataJson];  
+// try{
+//   var data = JSON.parse(date);
+// }catch(err){
+//   console.log('返回的内容不是对象而是一个字符串');
+// }
+          
+          for(var i = 0;i<data.length;i++){
+        var li =document.createElement('li');
+        list.appendChild(li);
+        li.setAttribute('class','item');
+        li.innerHTML=
+        `<div class="tit">
+          <div class="names">${copyData[i].name}</div>
+          <div class="img">
+            <img src="" alt="">
+          </div>
+          <div class="num">${copyData[i].id}</div>
+        </div>
+        <div class="url">
+          <img src="${copyData[i].url}" alt="">
+        </div>
+        <div class="foot">
+          <div class="attrs">
+            <h5>属性</h5>
+            <div class="attr-part">
+              <div class="attr-item">
+                <div class="spic">
+                  <img src="http://s1.52poke.wiki/wiki/thumb/e/ef/LPLE_%E8%8D%89_icon.png/20px-LPLE_%E8%8D%89_icon.png" alt="">
+                </div>
+                <div class="sname">
+                  <span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="risk">
+            <h5>捕获率</h5>
+            <p>${copyData[i].capture}</p>
+          </div>
+        </div>`
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            // try{
+            //   var dataJson =JSON.parse(data);
+            //   // console.log(dataJson);
+            // }catch(err){
+            //   console.log('返回内容不是对象而是一个字符串');
+            //   console.log(err);
+            // }
+          }
+        }
+      };
+      /*******************************************/
+    </script>
+  </body>      
+</html>

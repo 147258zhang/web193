@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./item.css">
+    <script src="../data/attributes.js"></script>
+    <script src="../data/data.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+<div id="list"></div>
+        <script>
+            var str = window.location.search.substr(1)
+          
+            var index = str.indexOf("=")
+            var key = str.substr(index+1,3)
+      
+            var val = str.substr(index+1)
+        
+            var num   =  Number(key)
+
+           console.log(val)
+           var list = document.getElementById("list")
+           
+
+          
+
+      var li = document.createElement("li")
+      list.appendChild(li)
+      li.setAttribute("class", "item")
+
+      li.innerHTML = `
+       <div class="tit">
+          <div class="names">${data[num].name}</div>
+          <div class="img" >
+            <img src="${attributes[data[num].attr[0] - 1].pic.mpic}" alt="">
+          </div>
+          <div class="num">${data[num].id}</div>
+        </div>
+        <div class="url"  >
+          <img src="${data[num].url}" alt="" >
+        </div>
+        <div class="foot">
+          <div class="attrs">
+            <h5>属性</h5>
+            <div class="attr-part">
+              
+            </div>
+          </div>
+          <div class="risk">
+            <h5>捕获率</h5>
+            <p>${data[num].capture}.</p>
+          </div>
+        </div>
+       `
+      //背景颜色
+      li.style.backgroundColor = attributes[data[num].attr[0] - 1].color.bgcolor
+      var url = document.getElementsByClassName("url")
+      url[0].style.borderColor = attributes[data[num].attr[0] - 1].color.bordercolor;
+      url[0].style.backgroundColor='white';
+      // document.getElementsByClassName("name")[0].style.backgroundColor='white';
+      // document.getElementsByClassName("num")[0].style.backgroundColor='white';
+      // url[1].style.backgroundColor='white';
+      // url[2].style.backgroundColor='white';
+      var tit = document.getElementsByClassName("tit");  
+      tit[0].style.backgroundColor = attributes[data[num].attr[0] - 1].color.titcolor
+      var la = document.getElementsByClassName("num")
+      la[0].style.borderColor = attributes[data[num].attr[0] - 1].color.bordercolor
+      var names = document.getElementsByClassName("names")
+      names[0].style.borderColor = attributes[data[num].attr[0] - 1].color.bordercolor
+
+
+    var attr = document.getElementsByClassName("attr-part")
+    
+      attr[0].innerHTML = attrMuster(data[num].attr)
+     
+    
+    function attrMuster(v) {
+      var attrs = ""
+      for (var k = 0; k < v.length; k++) {
+        attrs += `<div class="attr-item">
+                <div class="spic">
+                  <img src="${attributes[v[k] - 1].pic.spic}" alt="">
+                </div>
+                <div class="sname">
+                  <span>${attributes[v[k] - 1].name}</span>
+                </div>
+              </div>
+`
+      }
+      return attrs
+    }
+ 
+    var arr1 = data[0].attr;
+
+for(var u = 0; u < data.length-1; u++){
+ 
+  var arr2 = data[u+1].attr
+
+var sumData = []
+arr1= sumData.concat(arr1).concat(arr2)
+
+}
+
+
+var spic = document.getElementsByClassName("spic")
+for(var e = 0;e<spic.length;e++){
+console.log(spic.length)
+spic[0].style.backgroundColor = attributes[arr1[e] - 1].color.tabcolor
+}
+
+
+
+
+
+        </script>
+    </div>
+</body>
+
+</html>

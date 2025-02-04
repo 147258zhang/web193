@@ -1,0 +1,40 @@
+<!--pages/moni/moni.wxml-->
+<!-- <view wx:if="{{true}}">{{arr[0]}}</view>
+<view wx:if="{{false}}">{{arr[1]}}</view>
+<view wx:if="{{num>30}}">1</view>
+<view wx:elif="{{num<30}}">2</view>
+<view wx:else>3</view> -->
+<!-- ******** -->
+<!-- <block wx:if="{{false}}">
+  <view>王桂芝</view>
+  <view>魏德芬</view>
+</block>
+<block wx:else>
+  <view>王凯威</view>
+  <view>魏德飞</view>
+</block> -->
+<!-- ********** -->
+<!-- <view wx:for="{{arr1}}">{{item}}</view> -->
+<!-- ********** -->
+
+<!-- <view>{{num1}}</view>
+<block wx:for="{{arr1}}">
+  <checkbox >{{item}}</checkbox>
+</block> -->
+
+<!-- <button bindtap="change" type="primary">切换</button>
+
+<block wx:for="{{list}}" wx:key="idq">
+  <checkbox>{{item.names}}</checkbox>
+</block> -->
+
+<!-- <button bindtap="aaa" type="primary" data-i="1">按钮</button>
+<view>{{arr1[msg]}}</view> -->
+
+<!--  -->
+<!-- 
+  type="warn" plain 这两个是按钮样式不用在意
+ -->
+<button type="warn" plain open-type="getUserInfo" bindgetuserinfo="getInfo">获取</button>
+<view>{{names}}</view>
+<image src="{{userurl}}"></image>

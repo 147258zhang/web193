@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://localhost:3000/index"></script>
+    <script ></script>
+</head>
+
+<body>
+    <ul id="a1">
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        var a1 = document.getElementById('a1');
+        var li = a1.children;
+        // console.log(li);
+        for (var i = 0; i < li.length; i++) {
+            li[i].index = i + 1;
+            li[i].onclick = function () {
+                var _this = this;
+                // console.log(_this.index);
+                var a2 = _this.index;
+                var xhr = new XMLHttpRequest();
+                xhr.open('get', `http://localhost:3000/jingling${a2}`, true);
+                xhr.send();
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState == 4) {
+                        if (xhr.status == 200) {
+                            console.log(xhr.responseText)
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

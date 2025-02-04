@@ -1,0 +1,12 @@
+<!-- pages/movie/movie.wxml
+<text>pages/movie/movie.wxml</text> -->
+<!-- <block wx:for="{{movie}}">
+  <view>{{item.id}}</view>
+  <view>{{item.names}}</view>
+  <view>{{item.hot}}</view>
+</block> -->
+<button bindtap="change" type="primary">切换</button>
+<block wx:for="{{list}}" wx:key='idq'>
+  <checkbox>{{item.names}}</checkbox>
+</block>
+<view>{{num1}}</view>

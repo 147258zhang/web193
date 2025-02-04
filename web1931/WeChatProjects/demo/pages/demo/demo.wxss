@@ -1,0 +1,58 @@
+/* pages/demo/demo.wxss */
+.box view {
+  /* height: 300rpx;
+  width: 100%; */
+  display: flex;
+  flex-wrap: nowrap;
+}
+.item {
+  width: 100%;
+  height: 300rpx;
+  font-size: 60rpx;
+  float: left;
+  flex:0 0 100%;
+}
+.box .item:nth-child(1){
+  background-color: red;
+}
+.box .item:nth-child(2){
+  background-color: blue;
+}
+.box .item:nth-child(3){
+  background-color: green;
+}
+.box .item:nth-child(4){
+  background-color: orangered;
+}
+.box .item:nth-child(5){
+  background-color: purple;
+}
+.box .item:nth-child(6){
+  background-color: yellow;
+}
+.sw {
+  width: 100%;
+  height: 300rpx;
+  margin-top: 40rpx;
+}
+.sw .switem:nth-child(1) {
+  background-color: yellowgreen;
+}
+.sw .switem:nth-child(2) {
+  background-color: red;
+}
+.sw .switem:nth-child(3) {
+  background-color: green;
+}
+.sw .switem:nth-child(4) {
+  background-color: blue;
+}
+.area {
+  width: 100%;
+  background-color: yellow;
+}
+.in1 {
+  width: 200rpx;
+  height: 30rpx;
+  border: 1rpx solid black;
+}

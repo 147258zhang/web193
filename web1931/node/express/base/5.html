@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="http://localhost:3000/a1"></script>
+</head>
+
+<body>
+    <form action="">
+        用户名：<input type="text" id="uname"><br>
+        密&#x3000;码: <input type="password" id="pwd">
+        <input type="submit" value="登录" id="btn">
+    </form>
+    <script>
+        var uname = document.getElementById('uname');
+        var pwd = document.getElementById('pwd');
+        var btn = document.getElementById('btn');
+        btn.onclick = function () {
+            var username = uname.value;
+            var password = pwd.value;
+            ajax({
+                type: 'GET',
+                url: 'http://localhost', 
+                port: ':3000',
+                path: '/name',
+                data: {
+                    username: username,
+                    password: password
+                },
+                success: function (data) {
+                    console.log(data)
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            })
+
+        }
+    </script>
+</body>
+
+</html>

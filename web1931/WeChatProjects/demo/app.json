@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/2/2",
+    "pages/movie/movie",
+    "pages/moni/moni",
+    "pages/1/1",
+    "pages/demo/demo",
+    "pages/index/index",
+    "pages/logs/logs"
+   
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#39BDC9",
+    "navigationBarTitleText": "菜品",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/sy0.png",
+        "selectedIconPath": "images/sy1.png"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "日志",
+        "iconPath": "images/log0.png",
+        "selectedIconPath": "images/log1.png"
+      },
+      {
+        "pagePath": "pages/demo/demo",
+        "text": "示例",
+        "iconPath": "images/ceshi0.png",
+        "selectedIconPath": "images/ceshi1.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

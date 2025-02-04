@@ -1,0 +1,17 @@
+<!--pages/demo1/demo1.wxml-->
+<!-- <text>pages/demo1/demo1.wxml</text> -->
+<scroll-view class="box" scroll-x="true">
+  <view>
+    <view class="item">1</view>
+    <view class="item">2</view>
+    <view class="item">3</view>
+    <view class="item">4</view>
+    <view class="item">5</view>
+  </view>
+</scroll-view>
+<swiper class="sw" indicator-dots indicator-active-color="#FFF" autoplay>
+  <swiper-item class="switem">1</swiper-item>
+  <swiper-item class="switem">2</swiper-item>
+  <swiper-item class="switem">3</swiper-item>
+  <swiper-item class="switem">4</swiper-item>
+</swiper>

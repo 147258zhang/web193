@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        li {
+            list-style: none;
+        }
+        .list {
+            
+        }
+        .item {
+            width: 300px;
+            margin: 0 auto;
+            padding: 10px;
+            border-width: 2px;
+            border-radius: 5px;
+        }
+        .item .tit{
+            height: 60px;
+            line-height: 60px;
+        }
+        .item .tit h2{
+            float: left;
+            width: 170px;
+        }
+        .item .tit img{
+            display: block;
+            float: left;
+            margin: 17px;
+        }
+        .item .tit h1{
+            float: right;
+        }
+        .item .pic-area{
+            width: 200px;
+            border-width: 2px;
+            margin: 30px auto;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .item .pic-area img{
+            display: block;
+            width: 100%;
+        }
+        .item .attr-area{
+            width: 100%;
+        }
+        .item .attr-area h3{
+           text-align: center;
+        }
+        .item .attr-tab{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .item .attr-tab .attr-item{
+            width: 120px;
+            height: 30px;
+            
+        }
+        .item .attr-tab .attr-item > div {
+            float: left;
+            line-height: 30px;
+        }
+        .item .attr-tab .attr-item .attr-icon {
+            width: 30px;
+           
+        }
+        .item .attr-tab .attr-item .attr-icon img{
+            display: block;
+            margin: 5px auto;
+        }
+        .item .attr-tab .attr-item .attr-text {
+            width: 90px;
+            text-align: center;
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+    <script src="../data/1.js"></script>
+    <title>6</title>
+</head>
+<body>
+    <ul id="list" class="list">
+      
+    </ul>
+    
+<script>
+    var list = document.getElementById('list');
+    //循环所有数据然后动态添加
+    for(var i=0;i<data.length;i++){
+      var li = document.createElement('li');
+      list.appendChild(li);
+      li.setAttribute('class','item')
+      li.innerHTML=`   <div class="tit">
+               <h2>${data[i].name}</h2>
+               <img src="${data[i].attributes.major.mpic}" alt="">
+               <h1>${data[i].id}</h1>
+           </div>
+           <div class="pic-area">
+               <img src="${data[i].url}" alt="">
+           </div>
+           <div class="attr-area">
+               <h3>属性</h3>
+               <div class="attr-tab">
+                </div>
+                </div>`
+           ;
+    }
+    
+  
+    // 获取元素attr-tab
+    var attrTab = document.getElementsByClassName('attr-tab');
+    // 一个一个插入（循环插入）
+    for(var j = 0; j<attrTab.length;j++){
+        attrTab[j].innerHTML = attrMuster(data[j].attributes.secondary);
+    }
+    //用函数将重复的东西包裹起来返回一个固定的代码段 attr集合
+    function attrMuster(v){
+        //创建一个变量用于接住属性循环好的结构
+    var attrs = '';
+        //v就是每一次调用时传进来的某个小精灵的属性集合 
+        console.log(v);
+        //这一次循环的是每一个小精灵的属性标签内容（数组）
+    for(var k=0;k<v.length;k++){
+        attrs +=` <div class="attr-item">
+                       <div class="attr-icon " style="background-color:${v[k].sbg}">
+                           <img src="${v[k].spic}" alt="">
+                       </div>
+                       <div class="attr-text">
+                           <span>${v[k].sname}</span>
+                           </div>
+                       </div>`
+    }
+//返回值
+return attrs;
+    }
+</script>
+</body>
+<html>

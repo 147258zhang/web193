@@ -1,0 +1,22 @@
+@qian-red:#DF0408;
+@shen-red:#640203;
+
+//创建变量
+@font-color:@shen-red;
+@bg-color:@qian-red;
+* {
+  margin: 0;
+  padding: 0;
+}
+.box {
+  width: 1000px;
+  margin: 0 auto;
+  ul {
+    li {
+      list-style: none;
+      p {
+        color: @font-color;
+      }
+    }
+  }
+}

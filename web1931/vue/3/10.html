@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+<script src="../vue.js"></script>
+<style>
+    .red{
+        background-color: red;
+    }
+    .blue{
+        background-color: blue;       
+    }
+    div{
+        width: 200px;
+        height: 200px;
+    }
+</style>
+</head>
+<body>
+   
+<div id="app">
+    <input type="radio" v-model='c' value="red" name="color">
+    <input type="radio" v-model='c' value="blue" name="color">
+    <div>{{c}}</div>
+    <div :class="c"></div>
+</div>
+    <script>
+        var vm = new Vue({
+            el:'#app',
+            data:{
+                c:''
+            },
+            methods:{},
+
+         })
+    </script>
+</body>
+</html>

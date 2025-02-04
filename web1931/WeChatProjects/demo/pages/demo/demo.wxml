@@ -1,0 +1,36 @@
+<!--pages/demo/demo.wxml-->
+<!-- 滑动 -->
+<scroll-view class="box" scroll-x="true" scroll-left="100">
+  <view>
+    <view class="item">1</view>
+    <view class="item">2</view>
+    <view class="item">3</view>
+    <view class="item">4</view>
+    <view class="item">5</view>
+    <view class="item">6</view>
+  </view>
+</scroll-view>
+<!-- 轮播 -->
+<swiper class="sw" indicator-dots indicator-active-color="#fff" autoplay>
+  <swiper-item class="switem">{{msg}}</swiper-item>
+  <swiper-item  class="switem">2</swiper-item>
+  <swiper-item  class="switem">3</swiper-item>
+  <swiper-item  class="switem">4</swiper-item>
+</swiper>
+<!-- 表单 -->
+<view class="area">
+<input type="idcard" class="in1"/>
+<radio-group>
+  <radio>1</radio>
+  <radio>2</radio>
+</radio-group>
+<slider></slider>
+<switch></switch>
+</view>
+<view>
+  <icon type="search"></icon>
+</view>
+<view>
+  <picker mode="time">选择时间</picker>
+</view>
+<navigator url="/pages/index/index">index</navigator>

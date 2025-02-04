@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="../vue.js"></script>
+<style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  ul {
+    list-style: none;
+    width: 600px;
+    margin: 0 auto;
+    border: 1px solid black;
+  }
+  li {
+    display: flex;
+    text-align: center;
+    height: 60px;
+    line-height:60px;
+  }
+  li:nth-child(1){
+    background-color: #aaa;
+  }
+  li:nth-child(even){
+    background-color: rgb(140, 207, 246);
+  }
+  li>div {
+    width: 150px;
+    font-size: 18px;
+  }
+  button {
+    width: 80px;
+    height: 30px;
+    background-color: red;
+    color: white;
+    border-width: 0;
+  }
+  .box {
+    width: 600px;
+    margin: 0 auto;
+  }
+  .box > div {
+    height: 80px;
+  }
+  .box > div input {
+    height: 30px;
+    width: 200px;
+    font-size: 20px;
+  }
+  .box > div button {
+    border-width: 0;
+    width: 80px;
+    height: 40px;
+    background-color: teal;
+    color: #fff;
+  }
+</style>
+<title></title>
+</head>
+<body>
+  <div id="app">
+    <div class="box">
+      <div class="add">
+        <h4>添加新村民</h4>
+        <input type="text" placeholder="输入你的名字" v-model=newname>
+        <input type="text" placeholder="输入你的存款"v-model=newmoney>
+        <button @click=add>新增</button>
+      </div>
+      <div class="search">
+        <h4>查找村民</h4>
+        <input type="text" placeholder="请输入要查找的村民" v-model=searchname>
+        <button @click=search>查找</button>
+      </div> 
+    </div>
+    <ul>
+      <li>
+        <div>序号</div>
+        <div>名字</div>
+        <div>存款</div>
+        <div>是否删除</div>
+      </li>
+      <!--                                        初始化         改变之后               -->
+      <li v-for="(item,index) in list" v-show="aaa=='' ? true :(index== aaa)">
+        <div>{{index+1}}</div>
+        <div>{{item.names}}</div>
+        <div>{{item.num}}</div>
+        <div><button @click=del(index)>删除</button></div>
+      </li>
+    </ul>
+  </div>
+  <script>
+    var list = [
+      {names:'王桂芝',num:515,ist:true},
+      {names:'魏德芬',num:402,ist:true},
+      {names:'邹翠娟',num:527,ist:true},
+      {names:'袁秋菊',num:430,ist:true},
+      {names:'李胖妮',num:371,ist:true},
+      {names:'范桃花',num:295,ist:true},
+      {names:'胡狗剩',num:559,ist:true},
+      {names:'武秀娥',num:460,ist:true},
+      {names:'赵喜凤',num:420,ist:true}
+    ]
+  var vm = new Vue({
+     el:'#app',
+     data:{
+      newname:'',
+      newmoney:'',
+      list:list,
+      searchname:'',
+      // arr:['aa','bb','cc'],
+      // ww:'aa',
+      aaa:''
+     },
+     methods:{
+       add:function(){
+         this.list.push({names:this.newname,num:this.newmoney});
+         this.newname = ''
+         this.newmoney = ''
+       },
+       del:function(i){
+         this.list.splice(i,1)
+       },
+       search:function(){
+        // console.log(this.searchname)
+         //方法一：用变量接住全局数据
+        //  var ss = this.ww
+        //   var result = this.arr.findIndex(function(v,i,a){
+        //   console.log(ss)
+        //   return v == ss
+        //  })
+        //  //方法二：用变量承接this因为函数内部有函数
+        //  var that = this;
+        //  var result = this.arr.findIndex(function(v,i,a){
+        //    console.log(that.ww)
+        //   return v == that.ww
+        //  })
+        //  //方法三：用箭头函数 因this的指向
+        // var res = this.arr.findIndex((v,i,a)=>{
+        //   console.log(this.ww)
+        //   return v == this.ww
+        // })
+         
+        var that = this;
+         var result = this.list.findIndex(function(v,i,a){
+          return v.names == that.searchname
+         })
+        console.log(result)//3
+        // this.aaa = result
+        this.aaa = result
+        for(var i=0;i<this.list.length;i++){
+          this.list[i].ist = false;
+        }
+        this.list[result].ist = true;
+         
+       }
+      },
+   });
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <style></style>
+  <title></title>
+  <!-- <script src="http://localhost:3000/public/js/1.js"></script> -->
+  <script src="http://localhost:3000/public/js/ajax.js"></script>
+</head>
+
+<body>
+  <h1>用户登录</h1>
+  用户名<input type="text" id="uname"> <br>
+  密码<input type="text" id="upwd"> <br>
+  <button id="btn">登录</button>
+  <script>
+    var uname = document.getElementById('uname');
+    var upwd = document.getElementById('upwd');
+    var btn = document.getElementById('btn');
+    btn.onclick = function(){
+      ajax({
+      type: 'POST',
+      url: 'http://localhost',
+      port: ':3000',
+      path: '/user/checklogin',
+      data: {
+        uname:uname.value,
+        upwd:upwd.value
+      },
+      success: function (data) {
+        console.log(data);
+        //把来的数据变成对象并且使用扩展运算符将其复制
+        // var showData = [...JSON.parse(data)];
+        // showList(showData)
+      },
+      error: function (err) {
+        alert('服务器错误');
+      }
+    });
+    }
+   
+  </script>
+</body>
+
+</html>

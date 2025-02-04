@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="../vue.js"></script>
+<style>
+  .box {
+    width: 200px;
+    height: 200px;
+    background-color: blueviolet;
+    text-align: center;
+    margin: 100px auto;
+  }
+  button {
+    width: 70px;
+    height: 50px;
+    font-size: 20px;
+    margin-top:70px;
+  }
+</style>
+<title></title>
+</head>
+<body>
+  <div id="app">
+    <div class="box" @click=a>
+      <button @click.stop=b>按钮</button>
+      <!-- <a @click.prevent=b :href=url>baidu</a> -->
+      <!-- 
+        触发顺序：
+        1.先触发自己身上的事件
+        2.冒泡
+        3.默认跳转
+       -->
+    </div>
+  </div>
+  <script>
+    //.capture 原来是从内向外触发，现在改为，从外向内捕获【给外层元素】
+    //.prevent 会触发冒泡但是会取消在其身上的默认事件（如跳转）【给内层元素】
+    //.self 给外层元素，如果外层元素发现一个事件是冒泡来的，就不执行了
+    //.stop阻止事件冒泡【内层元素】
+  var vm = new Vue({
+     el:'#app',
+     data:{
+       url:""
+     },
+     methods:{
+       a:function(){
+         alert('大');
+         console.log(event.target)
+       },
+       b:function(){
+        alert('按钮')
+        // this.url = 'http://www.baidu.com'
+       }
+     },
+   });
+</script>
+</body>
+</html>

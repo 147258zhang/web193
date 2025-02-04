@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./2.css">
+</head>
+
+<body>
+    <table id="a1" >
+        <tr>
+            <td>学号</td>
+            <td>名字</td>
+            <td>照片</td>
+        </tr>
+    </table>
+    <script>
+        if (window.XMLHttpRequest) {
+            var xhr = new XMLHttpRequest();
+        } else {
+            var xhr = new ActiveXObject('Microsoft.XHLHTTP');
+        }
+        xhr.open('GET', 'http://localhost:3000', true);
+        xhr.send();
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4) {
+                if (xhr.status == 200) {
+                    var data = JSON.parse(xhr.responseText);
+                    console.log(data);
+                    console.log(data.a1[0].num);
+                    var a1 = document.getElementById('a1');
+                    for (var i = 0; i < data.a1.length; i++) {
+                        a1.innerHTML += `<tr>
+                            <td>${data.a1[i].num}</td>
+                            <td>${data.a1[i].name}</td>
+                            <td><img src="${data.a1[i].url}" alt=""></td>
+                        </tr>`
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+</html>

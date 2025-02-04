@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj={
+            id:'016',
+            name:'波波',
+            attr:'du'
+        }
+        function objToStr (o) {
+            var arr =[];
+            for(var i in obj) {
+                arr.push(i +'=' +obj[i])
+            }
+            return arr .join('&');
+        }
+        //var key = Object.keys(obj);
+        console.log(objToStr(obj));
+    </script>
+</body>
+</html>

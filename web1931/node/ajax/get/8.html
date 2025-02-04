@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 引入封装好的ajax -->
+    <script src="./ajax.js"></script>
+</head>
+<body>
+    <h1>宠物小精灵图鉴</h1>
+    <div class="box">
+        <ul>
+            <li>
+
+            </li>
+        </ul>
+    </div>
+   <script>
+    //    页面刷新后就调用展示所有小精灵的ajax
+    
+    function showList(data){
+        var copyList =showData.map(item,index){
+            return 
+        }
+        show.innerHTML=copyList.join('');
+    }
+    btn.onclick=function(){
+        var val=enter.value;
+        ajax({
+        type:'GET',
+        url:'http://localhost',
+        port:':3000',
+        path:'/query',
+        data:{},
+        success:function(data){
+            // console.log(data);
+            // 把来的数据变成对象并且使用扩展运算符将其复制
+            var showData=[...JSON.parse(data)]
+       },
+        error:function(err){
+            alert('服务器错误')
+        }
+    });
+    }
+   </script> 
+   <li>
+        <h2>${item.id}</h2>
+        <h3>${item.name}</h3>
+        <div class='pic'>
+            <img src="${item.url}" alt="">
+        </div>
+        <div class="attr">
+            <h4>属性</h4>
+            <p>${item.attr[0]}</p>
+            <p>${item.attr[1]}</p>
+
+        </div>
+        <div class="bh">
+            <h4>捕获率</h4>
+
+        </div>
+    </li>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    //准备封装一个ajax方法,调用的时候传递不同的参数
+    function ajax(ajaxObj) {
+      //先创建xhr对象（兼容性写法）
+      if (window.XMLHttpRequest) {
+        var xhr = new XMLHttpRequest();
+      } else {
+        var xhr = new ActiveXObject('Microsoft.XHLHTTP');
+      }
+      //准备发送
+      //  get                      http://xxx  :3000     /query     ?id=1&name=tom
+      xhr.open(ajaxObj.type, ajaxObj.url + ajaxObj.part + ajaxObj.path + '?' + objToStr(ajaxObj.data), true);
+      xhr.send();
+      console.log(ajaxObj.url + ajaxObj.port + ajaxObj.path + '?' + objToStr(ajaxObj.data));
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+          if (xhr.status == 200) {
+            //调用一个函数，为了传递参数xhr.responseText而在这里并不处理函数
+            //var data = xhr.responseText;
+            ajaxObj.success(xhr.responseText)
+          }else{
+            xhr.onerror=function(err){
+              if(ajaxObj.error){
+                ajaxObj.error(err)
+              }
+            }
+          }
+        }
+      }
+    }
+
+    //调用
+    ajax({
+      type: 'GET',
+      url: 'http://localhost',
+      part: ':3000',
+      path: '/query',
+      data: {
+        id: '016',
+        name: '波波'
+      },
+      //处理调用后，返回数据的函数
+    success:function(data){
+    console.log(data)
+    },
+    //失败之后返回的函数
+    error:function(err){
+      alert('服务器错误')
+    }
+    })
+
+    //将对象转为参数格式  id=1&name=tom
+    function objToStr(o) {
+      var arr = [];
+      for (var i in o) {
+        arr.push(i + "=" + o[i]);
+      }
+      return arr.join("&");
+    }
+
+  </script>
+</body>
+
+</html>

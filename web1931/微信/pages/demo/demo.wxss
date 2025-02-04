@@ -1,0 +1,15 @@
+/* pages/demo/demo.wxss */
+image{
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  display: block;
+  margin: 0 auto;
+}
+.btn{
+  margin-top: 50px;
+  width: 200px;
+  border-radius: 5px;
+  background-color: blue;
+  color: white;
+}

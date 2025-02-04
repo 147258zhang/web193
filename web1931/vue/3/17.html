@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 500px;
+            position: relative;
+        }
+        div img{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            right: 200px;
+            top: 200px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div width="500px" style="border: 1px;">
+        <img src="./img/1.gif" alt="">
+        <video src="./1.mp4" controls id="video" autoplay width="500px" height="500px">
+            
+        </video>
+        <div id="a1" style="height: 5px;background-color: red;"></div>
+        <div id="a2"></div>
+        <button ></button>
+    </div>
+    <audio src="./1.mp3" autoplay></audio>
+    <script>
+        var a1=document.getElementById('a1');
+        var a2=document.getElementById('a2');
+        var video=document.getElementById('video');
+        var a3;
+        a1.style.width='200px';
+        video.muted=true;
+        video.addEventListener('timeupdate',function(){
+            // console.log(video.duration);
+            // console.log(Math.floor(video.currentTime)/Math.floor(video.duration));
+            var a3=Math.floor(video.currentTime)/Math.floor(video.duration)
+            a1.style.width=a3*500+'px';
+            a2.innerHTML=Math.round(a3*100)+'%';
+        })
+       
+    </script>
+</body>
+</html>

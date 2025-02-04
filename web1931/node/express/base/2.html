@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style></style>
+  <title></title>
+</head>
+<body>
+  <ul>
+    <li id="a">1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+<script>
+  a.onclick = function(){
+    var xhr = new XMLHttpRequest();
+    xhr.open('get','http://localhost:3000/jingling',true);
+    xhr.send();
+    xhr.onreadystatechange = function(){
+     if(xhr.readyState == 4) {
+       if(xhr.status == 200){
+         console.log(xhr.responseText)
+       }
+     }
+    }
+  }
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" class="form">
+        用户名：<input type="text" placeholder="用户名" id="text"><br>
+        密&emsp;码：<input type="password" placeholder="密码"><br>
+        邮&emsp;箱: <input type="email" name="" id=""><br>
+        <input type="button" onclick="a()" width="100px" height="20px">
+        <p id="p"></p>
+    </form>
+    <script>
+        var p = document.getElementById('p');
+        var xml = new XMLHttpRequest();
+        // var text ='fadcadcbdhcdjacjdc';
+        
+        function a(value) {
+            var text = document.getElementById('text').value;
+            var b = /^\w+$/;
+                if (text == '') {
+                    p.innerHTML = '输入不能为空';
+                } else {
+                    if (b.test(text)) {
+                        if (text.length > 5) {
+                            text = text.slice(0, 5);
+                            p.innerHTML = text;
+                        }
+                    } else {
+                        p.innerHTML = '请输入字母，数字，下划线'
+                    }
+                }
+                d(text);
+        }
+        var d=function (value){
+            var text=value;
+        xhr.open('GET','http://localhost:3000/',true);
+        // 3.发送
+        xhr.send();
+        // 4.打电话等消息
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState==4){
+                // 可以了
+                // if(xhr.status==200){}
+                // 6.找到正确的负责人
+                if(xhr.status==200){
+                  
+                }
+            }
+        }
+        }
+        console.log(d());
+       
+    </script>
+</body>
+
+</html>

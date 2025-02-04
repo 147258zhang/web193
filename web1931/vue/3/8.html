@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="../vue.js"></script>
+    <style>
+        .a1>ul>li {
+            border: 1px solid black;
+            list-style: none;
+            width: 200px;
+            height: 140px;
+        }
+        .a1>ul{
+            display: flex;
+            justify-content: flex-start;
+        }
+        .a1>ul>li>img {
+            display: block;
+            margin: 0 auto;
+        }
+        .a1>ul>li{
+            text-align: center;
+            line-height: 140px;
+        }
+        ul>li>p {
+            text-align: center;
+            line-height: 100px;
+            font-size: 25px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="a1">
+            <ul v-for="(item,index) in a">
+                <li>
+                    <img :src="item.url" alt="">
+                </li>
+                <li>
+                    <p>{{item.name}}</p>
+                </li>
+                <li>
+                    <p>{{item.price}}</p>
+                </li>
+                <li>
+                    <input type="text" v-model.number=item.b>
+                    <p>{{item.b}}</p>
+                </li>
+                <li>
+                    <p v-on="change(item.price*item.b)"></p>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                a: [{
+                    name: '爆米花',
+                    url: './img/1.gif',
+                    price: 12,
+                    number: '1',
+                    id: 1,
+                    b: '',
+                    
+                },
+                {
+                    name: '薯条',
+                    url: './img/2.gif',
+                    price: 14,
+                    number: '1',
+                    id: 2
+                },
+                {
+                    name: '肉狗',
+                    url: './img/3.gif',
+                    price: 8,
+                    number: '1',
+                    id: 3
+                },
+                {
+                    name: '炸鸡',
+                    url: './img/4.gif',
+                    price: 20,
+                    number: '1',
+                    id: 4
+                },
+                {
+                    name: '香肠',
+                    url: './img/5.gif',
+                    price: 3,
+                    number: '1',
+                    id: 5
+                },
+                {
+                    name: '奶酪',
+                    url: './img/6.gif',
+                    price: 10,
+                    number: '1',
+                    id: 6
+                },
+                {
+                    name: '冰激凌',
+                    url: './img/7.gif',
+                    price: 5,
+                    number: '1',
+                    id: 7
+                },
+                {
+                    name: '鸡腿',
+                    url: './img/8.gif',
+                    price: 6,
+                    number: '1',
+                    id: 8
+                },
+                {
+                    name: '面包',
+                    url: './img/9.gif',
+                    price: 7,
+                    number: '1',
+                    id: 9
+                },
+                {
+                    name: '面条',
+                    url: './img/10.gif',
+                    price: 9,
+                    number: '1',
+                    id: 10
+                },
+                ],
+                lll:[]
+            },
+            methods: {
+                change:function(value){
+                    var lll=this.value
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

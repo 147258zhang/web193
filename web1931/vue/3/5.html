@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="../vue.js"></script>
+<style></style>
+<title></title>
+</head>
+<body>
+  <div id="app">
+    <input type="checkbox" name="fruit" value="3" v-model=check @change=a><label>西瓜</label>
+    <input type="checkbox" name="fruit" value="4" v-model=check @change=a ><label>葡萄</label>
+    <input type="checkbox" name="fruit" value="2" v-model=check @change=a><label>苹果</label>
+    <input type="checkbox" name="fruit" value="1" v-model=check @change=a><label>香蕉</label>
+    <p>{{check}}</p>
+    <img v-for="(item,index) in str" :src="item" alt="" >
+ 
+   
+  </div>
+  <script>
+  var vm = new Vue({
+     el:'#app',
+     data:{
+       check:[],
+       str:[]
+     },
+     methods:{
+       a:function(){
+        //  console.log(this.check)//[3,4,1,2]// 
+        var narr = this.check.map(function(v,i,a){
+          // console.log(v)
+          return `./icon/${v}.gif`
+        })
+        this.str=narr;
+  
+      
+        // this.str.push('./icon/'+this.check[this.check.length-1]+'.gif')
+        // console.log(this.str)
+       }
+     },
+   });
+</script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="../vue.js"></script>
+<style>
+
+  .box {
+    width: 200px;
+    height: 200px;
+    background-color: black;
+  }
+  .red {
+    background-color: red;
+  }
+  .blue {
+    background-color: blue;
+  }
+</style>
+<title></title>
+</head>
+<body>
+  <div id="app">
+    <input type="radio" name="color" v-model=c value="red"  @change=a>red
+    <input type="radio" name="color" v-model=c value="blue" @change=a>blue
+    <p class="show">{{c}}</p>
+    <div :class=color></div>
+  </div>
+  <script>
+  var vm = new Vue({
+     el:'#app',
+     data:{
+       msg:'',
+       show:'nihao',
+       c:'',
+       color:{
+        box:true,
+        red:true,
+        blue:false
+       }
+     },
+     methods:{
+       a:function(){
+        console.log(this.c)
+        
+        switch (this.c){
+          case 'red': this.color.red = true;this.color.blue = false;
+          break;
+          case 'blue': this.color.red = false;this.color.blue = true;
+          break;
+        }
+       }
+     },
+   });
+</script>
+</body>
+</html>

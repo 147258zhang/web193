@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="../vue.js"></script>
+<style>
+   .box {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+  }
+  .r {
+    border-radius: 50%;
+  }
+  .blue {
+    background-color: blue;
+  }
+</style>
+<title></title>
+</head>
+<body>
+  <div id="app">
+    <div :class=ys></div>
+    <button @click="cut">按钮</button>
+  </div>
+  <script>
+  var vm = new Vue({
+     el:'#app',
+     data:{
+       ys:['box','r','blue'],
+      ys2:{
+         'box':true,
+         'r':true,
+         'blue':true
+       }
+     },
+     //方法
+     methods:{
+       cut:function(){
+         //想改变data中的属性的值
+         //this特重要你要想改变当前实例中的data中的某数据，一定要加this.xxxx
+        //  this.ys2.r = !this.ys2.r
+        // if(this.ys.length == 1) {
+        //   return false
+        // }
+        // this.ys.pop()
+        this.ys.length == 1?this.ys.push('box'):this.ys.pop()
+       }
+     }
+   });
+
+</script>
+</body>
+</html>

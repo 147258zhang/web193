@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //创建有兼容性的小黄人
+           if (window.XMLHttpRequest) {
+        var xhr = new XMLHttpRequest();
+      } else {
+        var xhr = new ActiveXObject('Microsoft.XHLHTTP');
+      }
+     //         请求类型   地址                异步
+      xhr.open('POST','http://localhost:3000',true);
+      //在open和send之间需要有一个很关键的东西叫做请求头。请求头的作用是告诉后台你发送的是什么类型的文件。
+      xhr.setRequestHeader('Content-type','application/x-www-form-urlencoded;charset=utf-8');
+      /*
+      get 和post是有区别的 ，get发送参数是通过url地址，有个？后面放参数，他是暴露在url地址中的
+      post相对比较隐蔽，他把要传递的参数，打成碎片通过send方法一点点传递给后台
+      */
+     //传递参数在send里传递
+      xhr.send('id=001&name=妙蛙种子');
+
+      xhr.onreadystatechange=function(){
+       if(xhr.readyState == 4){
+           if(xhr.status == 200){
+               var data = xhr.responseText;
+               console.log(JSON.parse(data))
+           }
+       }
+   }
+    </script>
+</body>
+</html>

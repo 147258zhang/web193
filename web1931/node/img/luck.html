@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      background-color: #222;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .box {
+      width: 460px;
+      height: 460px;
+      margin: 100px auto;
+      border: 1px solid white;
+      position: relative;
+    }
+    .zp {
+      /* 过渡 */
+      transition: 6s;
+    }
+    .zz {
+      width: 100px;
+      position: absolute;
+      z-index: 2;
+      top:50%;
+      left: 50%;
+      margin-left: -50px;
+      margin-top: -70px;
+    }
+    .zz img {
+      display: block;
+      width: 100%;
+    }
+  </style>
+  <title>luck</title>
+</head>
+<body>
+  <div class="box">
+    <div class="zp" id="zp">
+      <img src="./img/zp.png" alt="">
+    </div>
+    <div class="zz">
+      <img src="./img/11.png" alt="" id="btn">
+    </div>
+  </div>
+<script>
+  var btn = document.getElementById('btn');
+  var zp = document.getElementById('zp');
+  
+  btn.onclick = function(){
+    zp.style.transform = 'rotate(13600deg)';
+  }
+</script>
+</body>
+</html>

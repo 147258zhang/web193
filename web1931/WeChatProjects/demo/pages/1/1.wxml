@@ -1,0 +1,26 @@
+<!--pages/1/1.wxml-->
+<!-- <text>pages/1/1.wxml</text> -->
+<view class="view" wx:for="{{items}}">
+  <image src="{{item.image}}"></image>
+  <view class="main">
+    <view class="main_top">
+      <text>{{item.name}}</text>
+      <image src="../../images/太阳.png"></image>
+    </view>
+    <view class="main_body">
+      <image src="../../images/星星.png"></image>
+      <image src="../../images/星星.png"></image>
+      <image src="../../images/星星.png"></image>
+    </view>
+    <view class="main_body1">
+      <image src="../../images/定位.png"></image>
+      <text>{{item.place}}</text>
+    </view>
+    <view class="main_foot">
+      ${{item.price}}
+    </view>
+  </view>
+
+
+
+</view>

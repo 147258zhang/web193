@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="../vue.js"></script>
+<style></style>
+<title></title>
+</head>
+<body>
+  <div id="app">
+    <!-- 
+      修饰符：
+      .lazy 当鼠标失去焦点之后再更新data数据
+      .number 变成数据类型
+      .trim 去掉前后空格
+     -->
+    <input type="text" v-model.lazy=msg>
+    <input type="text" v-model.number=num>
+    <input type="text" v-model.trim=names>
+    <p>{{msg}}</p>
+    <p>{{3+num}}</p>
+    <p>{{names}}</p>
+  </div>
+  <script>
+  var vm = new Vue({
+     el:'#app',
+     data:{
+       msg:'',
+       num:'',
+       names:''
+     },
+     methods:{},
+   });
+</script>
+</body>
+</html>

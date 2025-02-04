@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .header {
+            position: fixed;
+            background-color: #5AC0CE;
+            width: 100%;
+            font-size: 20px;
+            color: #DDF0F5;
+            text-align: center;
+            height: 80px;
+            line-height: 80px;
+        }
+
+        .header div {
+            float: left;
+        }
+
+        .header div img {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 80px;
+            line-height: 80px;
+        }
+
+        .footer button {
+            width: 45%;
+            margin: 0 0 0 3.3%;
+            height: 70px;
+            vertical-align: middle;
+            border-radius: 5px;
+            border: 3px solid #5AC0CE;
+            font-size: 27px;
+            text-align: center;
+            line-height: 70px;
+        }
+
+        .footer button:nth-child(1) {
+            background-color: white;
+            color: #5AC0CE;
+        }
+
+        .footer button:nth-child(2) {
+            background-color: #5AC0CE;
+            color: white;
+
+        }
+
+        .content {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background-image: url(./3.jpg);
+            background-repeat: repeat-x;
+            /* width: 100%; */
+            height: 350px;
+        }
+
+        .content .first img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 50px 0 0 70px;
+            border: 2px solid black;
+        }
+
+        .content .word {
+            margin: 30px 0 0 50px;
+            display: flex;
+            flex-direction: column;
+        }
+        .word div:nth-child(1){
+            font-size: 23px;
+        }
+        .word:nth-child(2){
+            
+        }
+        .a1{
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div>
+            <img src="./折.png" alt="">
+            <span></span>
+        </div>
+        个人主页
+    </div>
+    <div class="content">
+        <div class="first"><img src="./icon/1.gif" alt=""></div>
+        <div class="word">
+            <div>
+                asdcacdac
+            </div>
+            <div>ascadc</div>
+        </div>
+    </div>
+    <hr>
+    <div class="a1"></div>
+    <hr>
+    <div class="a1"></div>
+    <hr>
+    <div class="a1"></div>
+    <hr>
+    <div class="a1"></div>
+    <div class="footer">
+        <button>留言</button>
+        <button>电话联系</button>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form action="">
+    <input type="text" id="a1">
+    <input type="button" value="查询" id="a2">
+  </form>
+  <div id="list"></div>
+  <script>
+    var b = document.getElementById('a2');
+    b.onclick = function () {
+      var a = document.getElementById('a1').value;
+      if (window.XMLHttpRequest) {
+        var xhr = new XMLHttpRequest();
+      } else {
+        var xhr = new ActiveXObject('Microsoft.XMLHTTP');
+      }
+      xhr.open('GET', `http://localhost:3000/search?name=${a}`, true);
+      xhr.send();
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4) {
+          if (xhr.status == 200) {
+            var data = xhr.responseText;
+            var obj = JSON.parse(data);
+            console.log(obj);
+            var list = document.getElementById('list');
+            list.innerHTML = `
+       <div class="tit">
+          <div class="names">${obj[0].name}</div>
+          <div class="num">${obj[0].id}</div>
+        </div>
+        <div class="url"  >
+          <img src="${obj[0].url}" alt="" >
+        </div>
+        <div class="foot">
+          <div class="attrs">
+            <h5>属性</h5>
+            <div class="attr-part">
+              
+            </div>
+          </div>
+          <div class="risk">
+            <h5>捕获率</h5>
+            <p>${obj[0].capture}.</p>
+          </div>
+        </div>`
+
+          }
+        }
+      }
+    }
+  </script>
+</body>
+
+</html>

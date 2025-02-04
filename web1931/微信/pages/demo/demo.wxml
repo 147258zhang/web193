@@ -1,0 +1,4 @@
+<!--pages/demo/demo.wxml-->
+<!-- <text>pages/demo/demo.wxml</text> -->
+<image src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2996944316,2957273884&fm=26&gp=0.jpg"></image>
+<button class="btn">登录</button>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style></style>
+<script src="../vue.js"></script>
+<title></title>
+</head>
+<body>
+  <div id="app">{{msg1}}</div>
+  <script>
+    //1对象的方法
+  // var vm = new Vue({
+  //    el:'#app',
+  //    data:{
+  //      msg:'你好'
+  //    },
+  //  })
+   //2函数返回值的方法
+   var vm = new Vue({
+     el:'#app',
+     data:function(){
+       return {
+         msg1:'hello'
+       }
+     },
+   })
+
+</script>
+</body>
+</html>

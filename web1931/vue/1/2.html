@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style></style>
+<script src="../vue.js"></script>
+<title></title>
+</head>
+<body>
+  <div id="app">
+    <h1>{{c>d?a:b}}</h1>
+  </div>
+  <script>
+  var vm = new Vue({
+     el:'#app',
+     data:{
+       a:'王凯威',
+       b:'魏德芬',
+       c:9,
+       d:14
+     },
+   })
+</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function ajax(ajaxObj){
+            if(window.XMLHttpRequest){
+                var xhr =new XMLHttpRequest(); 
+            }else {
+                var xhr =new ActiveXObject('Microsoft.XMLHTTP');
+            }
+            xhr.open(ajaxObj.type,ajaxObj.url+ajaxObj.port+ajaxObj.path,true);
+            xhr.send();
+            xhr.onreadystatechange=function(){
+            if(xhr.readyState==4){
+                if(xhr.status>=200&&xhr.status<300){
+                    var data=xhr.responseText;
+                }
+            }
+        }
+    }
+    ajax({
+        type:'GET',
+        url:'http://localhost',
+        port:'3000',
+        path:'/query',
+        data:{
+            id:'016',
+            name:'波波'
+        }
+    })
+    function a(x){
+        console.log(x.name)
+    }
+    a({id:2,name:'tom'})
+    var obj={
+        id:'016',
+        name:'波波',
+        attr:'du'
+    }
+    function objTostr(o){
+        var arr=[];
+        for (var i in obj){
+            arr.push(i+'='+obj[i])
+        }
+        return arr.join('&');
+    }
+    console.log(objTostr(obj))
+    </script>
+</body>
+</html>

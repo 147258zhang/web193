@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style></style>
+    <title>用户登录界面</title>
+    <script src="../ajax/ajax.js"></script>
+</head>
+
+<body>
+    <h1>用户登录界面</h1>
+    用户名：<input type="text" id="uname"><br>
+    密&#x3000;码：<input type="password" id="pwd"><br>
+    <button id="btn">登录</button>
+    <script>
+        var uname = document.getElementById('uname');
+        var pwd = document.getElementById('pwd');
+        var btn = document.getElementById('btn');
+        //点击登陆之后
+        btn.onclick = function () {
+            var username = uname.value;
+            var password = pwd.value;
+            ajax({
+                type: 'POST',
+                url: 'http://localhost',
+                port: ':3000',
+                path: '/login',
+                data: {
+                    username: username,
+                    password: password
+                },
+                success: function (data) {
+                    console.log(data)
+                },
+                error: function (err) {
+                    console.log(err);
+                }
+            })
+
+        }
+
+    </script>
+</body>
+
+</html>

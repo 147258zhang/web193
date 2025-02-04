@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style></style>
+  <title></title>
+  <script src="../vue.js"></script>
+</head>
+<body>
+  <div id="box">
+    <p v-for="(item,index) in a">{{a[index].name}}</p>
+  </div>
+
+<script>
+  var arr = [{name:'tom'},{name:'jack'},{name:'bob'}];
+  //
+  var v = new Vue({
+    el:'#box',
+    data: {
+      a:arr
+    }
+  })
+</script>
+</body>
+</html>

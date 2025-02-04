@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="../vue.js"></script>
+<style>
+  .box {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+  }
+  .r {
+    border-radius: 50%;
+  }
+</style>
+<title></title>
+</head>
+<body>
+  <!-- 绑定属性 -->
+  <div id="app">
+    <div :class=ys2></div>
+  </div>
+  <script>
+  var vm = new Vue({
+     el:'#app',
+     data:{
+       ys:['box','r'],
+       ys2:{
+         'box':true,
+         'r':false
+       }
+     },
+   });
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+    <view class="wgz" hover-class="www" hover-start-time="2000">王桂芝</view>
+    <text>周翠娟</text>
+    <image src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1607335174102&di=25a1c5bd4418a681a01a46dc36eee2ea&imgtype=0&src=http%3A%2F%2Fa1.att.hudong.com%2F24%2F78%2F20300000291746133783784887147.jpg"></image>
+    <image src=""></image>
+  </view>
+</view>

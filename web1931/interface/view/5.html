@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../public/stylesheet/7.css">
+    <script src="../data/data.js"></script>
+    <title>7</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .title {
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .list {
+            width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+
+        }
+
+        .item {
+            width: 400px;
+            border: 2px solid black;
+            border-radius: 10px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+
+        .item .tit {
+            height: 80px;
+            padding: 10px 6px 0 6px;
+        }
+
+        .item .tit>div {
+            border:2px solid red;
+            line-height: 50px;
+            padding: 10px 20px;
+            float: left;
+            border-radius: 10px;
+        }
+
+        .item .tit .names {
+            width: 180px;
+            margin-right: 20px;
+        }
+
+        .item .tit .num {
+            float: right;
+        }
+
+        .item .tit .img {
+            border-width: 0;
+        }
+
+        .item .tit .img img {
+            display: block;
+            margin-top: 15px;
+        }
+
+        .item .url {
+            width: 304px;
+            margin: 30px auto;
+            border: 2px solid blue;
+            border-radius: 10px;
+            padding: 40px;
+
+        }
+
+        .item .url img {
+            display: block;
+            width: 100%;
+        }
+
+        .item .foot {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .item .foot>div {
+            width: 180px;
+            border: 2px solid green;
+        }
+
+        .item .foot>div h5 {
+            text-align: center;
+        }
+
+        .item .foot .risk p,
+        .item .foot .attr-part {
+            width: 92%;
+            margin: 10px auto;
+            border: 1px solid purple;
+            text-align: center;
+            height: 30px;
+            line-height: 30px;
+        }
+
+        .item .foot .attr-part {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .item .foot .attr-part .attr-item {
+            width: 78px;
+            height: 24px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 3px;
+        }
+
+        .item .foot .attr-part .attr-item>div {
+            float: left;
+            height: 20px;
+            padding: 2px;
+            background-color: royalblue;
+
+        }
+
+        .item .foot .attr-part .attr-item .spic {
+            width: 20px;
+        }
+
+        .item .foot .attr-part .attr-item .spic img {
+            display: block;
+            width: 100%;
+        }
+
+        .item .foot .attr-part .attr-item .sname {
+            width: 50px;
+            font-size: 13px;
+            line-height: 20px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">口袋妖怪图鉴</h1>
+    <div id="box">
+        <ul id="list" class="list">
+        </ul>
+    </div>
+    <script>
+        var list =document.getElementById('list');
+    for(var i = 0;i<data.length;i++){
+        var li =document.createElement('div');
+        list.appendChild(li);
+        li.setAttribute('class','item');
+       
+        li.innerHTML=`<div class="tit" style="backgroundColor:${attributes[data[i].attr[0]-1].pic.titcolor}">
+          <div class="names">${data[i].name}</div>
+          <div class="img">
+            <img src="${attributes[data[i].attr[0]-1].pic.mpic}" alt="">
+          </div>
+          <div class="num">${data[i].id}</div>
+        </div>
+        <div class="url">
+          <img src="${data[i].url}" alt="">
+        </div>
+        <div class="foot">
+          <div class="attrs">
+            <h5>属性</h5>
+            <div class="attr-part">
+              <div class="attr-item">
+                
+              </div>
+            </div>
+          </div>
+          <div class="risk">
+            <h5>捕获率</h5>
+            <p>${data[i].capture}</p>
+          </div>
+        </div>`
+    }
+    var attrPart =document.getElementsByClassName('attr-part');
+    for(var j=0;j<attrPart.length;j++){
+      // console.log(data[j].attr)
+      attrPart[j].innerHTML=attrMuster(data[j].attr)
+    }
+    function attrMuster(v){
+      var attrs ='';
+      //v[k]-1 每个小精灵的属性数据（值-1）
+      //v 代表小精灵数据的数组
+      //k 代表遍历小精灵属性的数组索引
+      // v[k] 代表属性数组的值
+      // v[k]-1 代表所处的索引
+      for(var k=0;k<v.length;k++){
+        attrs+=` <div class="attr-item">
+                <div class="spic">
+                  <img src="${attributes[v[k]-1].pic.spic}" alt="">
+                </div>
+                <div class="sname">
+                  <span>${attributes[v[k]-1].name}</span>
+                </div>
+              </div>`
+      }
+      return attrs;
+    }
+    </script>
+</body>
+
+</html>
